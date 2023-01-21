@@ -1,10 +1,23 @@
-
+const mongoose = require('mongoose');
 const express = require('express')
 const app = express()
 const port = 3000
 
+
 app.set('view engine', 'ejs') // To write the name of the file directly and it will bring from "Views" File
 app.use(express.static('public')) // To write file name directly not in path : like this <link rel="stylesheet" href="style.css">
+
+ 
+{ // mogoose Connection DB
+mongoose.set('strictQuery', true);
+mongoose.connect("mongodb+srv://hamzaezzat:bofdec-boNryp-1vujfu@cluster0.p5ibkbv.mongodb.net/alldata?retryWrites=true&w=majority")
+  .then( result => {
+    app.listen(port, () => { }) 
+  })
+  .catch( err => {
+    console.log(err);
+  }); 
+}
 
 
 {// For Auto reload views Folder
@@ -54,10 +67,4 @@ app.get('/contact', (req,res) => {
 // Status() - Error 404
 app.use((req,res)=>{
   res.status(404).send("Error 404")
-})>>>
-
-// Run App
-app.listen(port, () => {
-  // console.log(`http://localhost:${port}`)
-}) 
-console.log(first)
+})

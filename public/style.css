@@ -159,3 +159,10 @@
 .dark .text-dark{
     color: rgb(232, 232, 232) !important;
 }
+
+.rounded-pill-c{
+  border-radius: 2rem;
+  background-color: #eeeeee;
+  border: none;
+  padding: 10px 20px;
+}
