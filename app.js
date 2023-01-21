@@ -1,7 +1,14 @@
-const mongoose = require('mongoose');
 const express = require('express')
 const app = express()
 const port = 3000
+
+const mongoose = require('mongoose');
+const Article = require("./models/articleSchema");
+
+
+// To not console undefiend
+app.use(express.urlencoded({ extended: true }));
+
 
 
 app.set('view engine', 'ejs') // To write the name of the file directly and it will bring from "Views" File
@@ -20,7 +27,7 @@ mongoose.connect("mongodb+srv://hamzaezzat:bofdec-boNryp-1vujfu@cluster0.p5ibkbv
 }
 
 
-{// For Auto reload views Folder
+{// For Auto reload "views" Folder
 const path = require("path");
 const livereload = require("livereload");
 const liveReloadServer = livereload.createServer();
@@ -35,36 +42,61 @@ liveReloadServer.server.once("connection", () => {
 // End of Auto reload views Folder
 }
 
-// Basic Load
-app.get("/",(req,res)=>{
-  res.send("Hello World")
-})
-
 // Render
-app.get("/html",(req,res)=>{
+app.get("/",(req,res)=>{
   res.render("index")
 })
-// Render
+// app.get("/index",(req,res)=>{
+//   res.render("index")
+// })
+
+// add-new-article Page
 app.get("/add-new-article",(req,res)=>{
   res.render("add-new-article")
 })
 
-// // Send File
-// app.get("/html",(req,res)=>{
-//   res.sendFile("/views/index.html",{root: __dirname}) //  {root: __dirname}: from root directory
-// })
+// POST new Article 
+app.post('/',(req,res)=>{
+  const article = new Article(req.body) 
+  console.log(req.body)
 
-// Redirect()
-app.get('/redirect', (req, res) => {
-  res.redirect("/www.google.com")
-})
+  article
+    .save()
+    .then(res.render("index"))
+    .catch()
 
-// route
-app.get('/contact', (req,res) => {
-  res.send("Contact us")
+
 })
 
 // Status() - Error 404
 app.use((req,res)=>{
-  res.status(404).send("Error 404")
+  res.status(404).render("index")
 })
+
+
+
+
+
+
+
+// {// learning
+//   // Basic Load
+//   app.get("/",(req,res)=>{
+//     res.send("Hello World")
+//   })
+
+//   // // Send File
+//   // app.get("/html",(req,res)=>{
+//   //   res.sendFile("/views/index.html",{root: __dirname}) //  {root: __dirname}: from root directory
+//   // })
+
+//   // Redirect()
+//   app.get('/redirect', (req, res) => {
+//     res.redirect("/www.google.com")
+//   })
+
+//   // route
+//   app.get('/contact', (req,res) => {
+//     res.send("Contact us")
+//   })
+// }
