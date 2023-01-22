@@ -39,14 +39,17 @@ liveReloadServer.server.once("connection", () => {
 // End of Auto reload views Folder
 }
 
-// Render
+// Render & fetch DB Data 
 app.get("/",(req,res)=>{
+  Article.find()
+    .then((result) => { console.log(result) })
+    .catch((err) => { console.log(err) })
   res.render("index",{pageTitle:"Blogs"})
 })
 
 // add-new-article Page
 app.get("/add-new-article",(req,res)=>{
-  res.render("add-new-article")
+  res.render("add-new-article",{pageTitle:"New Article"})
 })
 
 // POST new Article 
