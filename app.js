@@ -13,7 +13,7 @@ app.set('view engine', 'ejs') // To write the name of the file directly and it w
 app.use(express.static('public')) // To write file name directly not in path : like this <link rel="stylesheet" href="style.css">
 
  
-{ // mogoose Connection DB
+// mogoose Connection DB
 mongoose.set('strictQuery', true);
 mongoose.connect("mongodb+srv://hamzaezzat:bofdec-boNryp-1vujfu@cluster0.p5ibkbv.mongodb.net/alldata?retryWrites=true&w=majority")
   .then( result => {
@@ -22,9 +22,9 @@ mongoose.connect("mongodb+srv://hamzaezzat:bofdec-boNryp-1vujfu@cluster0.p5ibkbv
   .catch( err => {
     console.log(err);
   }); 
-}
 
-{// For Auto reload "views" Folder
+
+// For Auto reload "views" Folder
 const path = require("path");
 const livereload = require("livereload");
 const liveReloadServer = livereload.createServer();
@@ -37,14 +37,20 @@ liveReloadServer.server.once("connection", () => {
   }, 100);
 }); 
 // End of Auto reload views Folder
-}
+
+
+// ===================== End of Configration =====================
+
+
 
 // Render & fetch DB Data 
 app.get("/",(req,res)=>{
   Article.find()
-    .then((result) => { console.log(result) })
+    .then((result)=>{
+      console.log(result)
+      res.render("index",{pageTitle:"Blogs",arrArticle:result})
+    })
     .catch((err) => { console.log(err) })
-  res.render("index",{pageTitle:"Blogs"})
 })
 
 // add-new-article Page
@@ -56,21 +62,33 @@ app.get("/add-new-article",(req,res)=>{
 app.post('/',(req,res)=>{
   const article = new Article(req.body) 
   console.log(req.body)
-
   article
     .save()
     .then(res.render("index"))
     .catch()
-
-
 })
+
+app.get("/:id",(req,res) => {
+  Article.findById(req.params.id)
+    .then((result) => { 
+      res.render("article",{pageTitle:"Articles",objArticle:result})
+     })
+    .catch((err) => { console.log(err) })
+ })
+
+ app.delete("/:id",(req,res) => {
+  Article.findByIdAndDelete(req.params.id)
+    .then((result) => {
+       render.render('/',{pageTitle:"Articles",objArticle:result})
+    })
+    .catch((err) => { console.log(err) })
+ })
+
 
 // Status() - Error 404
 app.use((req,res)=>{
   res.status(404).render("index")
 })
-
-
 
 
 
@@ -97,3 +115,4 @@ app.use((req,res)=>{
 //     res.send("Contact us")
 //   })
 // }
+
