@@ -1,3 +1,4 @@
+// Configration 
 const express = require('express')
 const app = express()
 const port = 3000
@@ -5,11 +6,8 @@ const port = 3000
 const mongoose = require('mongoose');
 const Article = require("./models/articleSchema");
 
-
 // To not console undefiend
 app.use(express.urlencoded({ extended: true }));
-
-
 
 app.set('view engine', 'ejs') // To write the name of the file directly and it will bring from "Views" File
 app.use(express.static('public')) // To write file name directly not in path : like this <link rel="stylesheet" href="style.css">
@@ -25,7 +23,6 @@ mongoose.connect("mongodb+srv://hamzaezzat:bofdec-boNryp-1vujfu@cluster0.p5ibkbv
     console.log(err);
   }); 
 }
-
 
 {// For Auto reload "views" Folder
 const path = require("path");
@@ -44,11 +41,8 @@ liveReloadServer.server.once("connection", () => {
 
 // Render
 app.get("/",(req,res)=>{
-  res.render("index")
+  res.render("index",{pageTitle:"Blogs"})
 })
-// app.get("/index",(req,res)=>{
-//   res.render("index")
-// })
 
 // add-new-article Page
 app.get("/add-new-article",(req,res)=>{
