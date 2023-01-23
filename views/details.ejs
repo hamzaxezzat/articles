@@ -24,12 +24,12 @@
 
 
                     //  what is data ?
-                    // {mylink: "/all-articles" }
+                    // {mylink: "/blogs" }
 
 
                     btnelement.addEventListener("click", (eo) => {
 
-                        fetch(`/all-articles/${articleId}`, { method: "DELETE" })
+                        fetch(`/blogs/${articleId}`, { method: "DELETE" })
                             .then((response) => response.json())
                             .then((data) => window.location.href = data.mylink)
                             .catch((err) => {

@@ -41,10 +41,10 @@ mongoose
   });
 
 app.get("/", (req, res) => {
-  res.redirect("/all-articles");
+  res.redirect("/blogs");
 });
 
-app.get("/all-articles", (req, res) => {
+app.get("/blogs", (req, res) => {
   // res.render("index", { mytitle: "HOME" });
 
   // result = Array of objects inside mongo database
@@ -62,7 +62,7 @@ app.get("/add-new-article", (req, res) => {
   res.render("add-new-article", { mytitle: "create new article" });
 });
 
-app.post("/all-articles", (req, res) => {
+app.post("/blogs", (req, res) => {
   const article = new Article(req.body);
 
   // console.log(req.body)
@@ -70,14 +70,14 @@ app.post("/all-articles", (req, res) => {
   article
     .save()
     .then((result) => {
-      res.redirect("/all-articles");
+      res.redirect("/blogs");
     })
     .catch((err) => {
       console.log(err);
     });
 });
 
-app.get("/all-articles/:id", (req, res) => {
+app.get("/blogs/:id", (req, res) => {
   // result =   object  inside mongo database
 
   Article.findById(req.params.id)
@@ -89,11 +89,11 @@ app.get("/all-articles/:id", (req, res) => {
     });
 });
 
-app.delete("/all-articles/:id", (req, res) => {
+app.delete("/blogs/:id", (req, res) => {
   Article.findByIdAndDelete(req.params.id)
 
     .then((params) => {
-      res.json({ mylink: "/all-articles" });
+      res.json({ mylink: "/blogs" });
     })
 
     .catch((err) => {
