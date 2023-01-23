@@ -88,7 +88,7 @@ app.get("/blogs/:id", (req, res) => {
       console.log(err);
     });
 });
-
+// Can't use redirect becauee "app.delete" refuse "res.redirect" method
 app.delete("/blogs/:id", (req, res) => {
   Article.findByIdAndDelete(req.params.id)
 
