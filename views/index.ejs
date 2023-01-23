@@ -14,23 +14,25 @@
       
       <div class="row mb-2">
         
-        <%  arrArticle.forEach((item)=>{ %>
-          <div class="col-md-6">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250">
-              <div class="card-body d-flex flex-column align-items-start">
-                <strong class="d-inline-block mb-2 text-primary"> <%=  item.category %></strong>
-                <h3 class="mb-0">
-                  <a class="text-dark" href="#"><%= item.title %></a>
-                </h3>
-                <div class="mb-1 text-muted"><%= item.date %> </div>
-                <p class="card-text mb-auto"><%= item.summary%></p>
-                <a href="/<%= item._id %> ">Continue reading</a>
-              </div>
-              <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
-            </div>
-          </div>
-        <%  }); %>
-        
+              
+              <% arrArticle.forEach((item) => { %>
+          
+                <div class="col-md-6">
+                  <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                      <strong class="d-inline-block mb-2 text-primary"> <%=  item.category %></strong>
+                      <h3 class="mb-0">
+                        <a class="text-dark" href="#"><%= item.title %></a>
+                      </h3>
+                      <div class="mb-1 text-muted"><%= item.date %> </div>
+                      <p class="card-text mb-auto"><%= item.summary%></p>
+                      <a class="btn" href="/all-articles/<%= item._id  %>">show more</a>
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+                  </div>
+                </div>
+              <%  }); %>
+              
         <div class="col-md-6">
           <div class="card flex-md-row mb-4 box-shadow h-md-250">
             <div class="card-bo dy d-flex flex-column align-items-start">

@@ -1,0 +1,31 @@
+const arrArticle = [
+    
+  {
+    _id: new ObjectId("613a9a265e04d99a04ee969e"),
+    title: 'wwwwwwwwwwwwwwwwww',
+    summary: 'rrrrrrrrrrrrrrrr',
+    body: 'shbtrjdtkyu825363  dssdsdsdddddddddddddddddddddddddddddddddddddddddddddddd',
+    __v: 0
+  },
+
+
+  {
+    _id: new ObjectId("613a9b255e04d99a04ee96a0"),
+    title: '222222222222222222',
+    summary: 'uuuuuuuuuuuuuuuuuuuuuuuuuuuuu',
+    body: 'etghtehtrj4j54j5j85200000000000000000000000000000000000000000000000000',
+    __v: 0
+  },
+
+
+
+  {
+    _id: new ObjectId("613ad92032dc850cccb38539"),
+    title: '33333333333333',
+    summary: '4ju46j46wjwtjtjw',
+    body: 'rgggggggggggggggggggggggggggggggggggggg',
+    __v: 0
+  }
+
+
+]

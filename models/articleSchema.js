@@ -1,20 +1,26 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
- 
+
+
+
+
 // define the Schema (the structure of the article)
-const articleSchema = new Schema({
+const articleSchema = new Schema(  {
+
   title: String,
   summary: String,
   body: String,
   category:String,
   image: String,
   date: {type:Date, default:Date.now},
-});
- 
- 
-// Create a model based on that schema
+
+  }                        );
+
+
+  // Create a model based on that schema
 const Article = mongoose.model("Article", articleSchema);
- 
- 
+  
+
+
 // export the model
-module.exports = Article; 
+module.exports = Article;
