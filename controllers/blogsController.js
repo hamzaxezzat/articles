@@ -1,4 +1,5 @@
 const Article = require("../models/articleSchema");
+const Login = require("../models/loginSchema");
 
 // MVS Variable function naming: blogs_create_get
 const first_post = (req,res)=>{
@@ -15,6 +16,19 @@ const blogs_index_get  = (req, res) => {
         console.log(err);
       });
     }
+
+const login_post = (req, res) => {
+    const login = new Login(req.body);    
+    login
+        .save()
+        .then((result) => {
+        res.redirect("/blogs");
+        })
+        .catch((err) => {
+        console.log(err);
+        });
+    }
+
 const blogs_post = (req, res) => {
     const article = new Article(req.body);    
     article
@@ -26,7 +40,6 @@ const blogs_post = (req, res) => {
         console.log(err);
         });
     }
-
 const blogs_details_get =  (req, res) => {
     Article.findOne({slug:req.params.slug})
         .then((result) => {
@@ -50,4 +63,4 @@ const blogs_delete = (req, res) => {
         });
     }
 
-module.exports = {blogs_index_get, blogs_post, blogs_details_get, blogs_delete} 
+module.exports = {blogs_index_get, blogs_post, blogs_details_get, blogs_delete,login_post} 
