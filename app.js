@@ -56,12 +56,9 @@ app.use('/blogs', blogs)
 
 
 app.get("/add-new-article", (req, res) => {
-  res.render("add-new-article", { mytitle: "create new article" });
+  res.render("add-new-article", { mytitle: "create new article" ,});
 });
 
-app.put("/:id", (req, res) => {
-  res.render("edit-article", { mytitle: "create new article" });
-});
 
 //  404
 app.use((req, res) => {
