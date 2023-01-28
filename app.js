@@ -2,12 +2,14 @@
 //  to controll ur website
 
 const express = require("express");
+const helmet = require("helmet");
 const app = express();
 const port = 5050;
+const blogs = require ('./routes/blogs')
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
-const blogs = require('./routes/blogs')
+// app.use(helmet());
 
 
 // for auto refresh
@@ -27,6 +29,7 @@ liveReloadServer.server.once("connection", () => {
 
 // mongoose
 const mongoose = require("mongoose");
+mongoose.set('strictQuery', false)
 
 mongoose
   .connect(

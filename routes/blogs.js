@@ -6,7 +6,7 @@ router.get("/", blogs_index_get);
 
 router.post("/", blogs_post);
 
-router.get("/:id",blogs_details_get);
+router.get("/:slug",blogs_details_get);
 
 router.delete("/:id", blogs_delete);
   

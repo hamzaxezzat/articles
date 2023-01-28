@@ -7,7 +7,7 @@ const blogs_index_get  = (req, res) => {
   
     // result = Array of objects inside mongo database
   
-    Article.find()
+    Article.find().sort({date:'desc'})
       .then((result) => {
         res.render("index", { mytitle: "HOME", arrArticle: result });
       })
@@ -32,16 +32,21 @@ const blogs_post = (req, res) => {
 const blogs_details_get =  (req, res) => {
     // result =   object  inside mongo database
     
-    Article.findById(req.params.id)
+    
+    Article.findOne({slug:req.params.slug})
         .then((result) => {
-        res.render("details", { mytitle: "ARTICLE DETAILS", objArticle: result });
+            
+            if (result == null) res.redirect('/') // if the article not exist return to home page
+            res.render("details", { mytitle: "ARTICLE DETAILS", objArticle: result });
         })
         .catch((err) => {
         console.log(err);
         });
     }
 const blogs_delete = (req, res) => {
-    Article.findByIdAndDelete(req.params.id)
+    // Article.findOneAndDelete({slug:req.params.id})
+    // Article.findOneAndDelete({slug:req.params.slug})
+    Article.findByIdAndRemove(req.params.id)
     
         .then((params) => {
         res.json({ mylink: "/blogs" });
