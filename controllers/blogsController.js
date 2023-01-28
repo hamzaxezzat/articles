@@ -1,10 +1,10 @@
 const Article = require("../models/articleSchema");
 
 // MVS Variable function naming: blogs_create_get
-
+const first_post = (req,res)=>{
+    Article.firs
+}
 const blogs_index_get  = (req, res) => {
-    // res.render("index", { mytitle: "HOME" });
-  
     // result = Array of objects inside mongo database
   
     Article.find().sort({date:'desc'})
@@ -16,10 +16,7 @@ const blogs_index_get  = (req, res) => {
       });
     }
 const blogs_post = (req, res) => {
-    const article = new Article(req.body);
-    
-    // console.log(req.body)
-    
+    const article = new Article(req.body);    
     article
         .save()
         .then((result) => {
@@ -29,10 +26,8 @@ const blogs_post = (req, res) => {
         console.log(err);
         });
     }
+
 const blogs_details_get =  (req, res) => {
-    // result =   object  inside mongo database
-    
-    
     Article.findOne({slug:req.params.slug})
         .then((result) => {
             
@@ -44,8 +39,6 @@ const blogs_details_get =  (req, res) => {
         });
     }
 const blogs_delete = (req, res) => {
-    // Article.findOneAndDelete({slug:req.params.id})
-    // Article.findOneAndDelete({slug:req.params.slug})
     Article.findByIdAndRemove(req.params.id)
     
         .then((params) => {

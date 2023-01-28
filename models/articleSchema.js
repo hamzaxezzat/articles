@@ -12,7 +12,7 @@ const articleSchema = new mongoose.Schema(  {
   summary: {type:String, required:true},
   body: {type:String, required:true},
   category:{type:String, required:true},
-  image: {type:String, required:false},
+  photo: String,
   slug: {type:String, required:true},
   date: {type:Date, default:Date.now},
   sanitizedHtml:{type:String,required:true}

@@ -12,7 +12,7 @@
 
             <div class="form-group">
               <label for="title">Article Title</label>
-              <input name="title" type="text" class="form-control rounded-pill-c" id="title" placeholder="title..." required >
+              <input name="title" type="text" class="form-control rounded-pill-c" id="title" required >
             </div>
 
             <div class="form-group">
@@ -25,13 +25,13 @@
             </div>
 
             <div class="form-group">
-                <label for="body">Article Body</label>
-                <textarea name="body" class="form-control rounded-pill-c" id="body" rows="3" required ></textarea>
+                <label for="body">Article Body [Markdown]</label>
+                <textarea name="body" class="form-control rounded-pill-c" id="body" rows="10" required placeholder="## Title ..." ></textarea>
             </div>
 
             <div class="form-group">
-                <label class="form-label" for="photo">Upload Article Image</label>
-                <input name="photo" type="file" class="form-control rounded-pill-c" id="photo"  value="upload image"/>
+                <label class="form-label" for="photo">Article Image</label>
+                <input name="photo" type="text" class="form-control rounded-pill-c" id="photo"  placeholder="Enter Image URL"/>
             </div>
             <button type="submit" class="btn btn-primary ">Publish</button>
             

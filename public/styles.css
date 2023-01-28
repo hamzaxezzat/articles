@@ -173,3 +173,14 @@ padding-top: 5em;
 padding-bottom: 4em;
 /* margin: 2em; */
 }
+/*  */
+.overflow-hidden{
+  overflow: hidden;
+  border: 10px solid white;
+}
+
+img[alt=markdown] { width: 100%; }
+.card-img-right{
+  object-fit: cover;
+  
+}

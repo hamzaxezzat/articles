@@ -51,32 +51,31 @@
           <a class="p-2 text-muted" href="#">Travel</a>
         </nav>
       </div>
-
-        <div class="blog-post">
-            <h2 class="blog-post-title">
+<div class="row justify-content-center">
+        <div class="blog-post col-md-8 ">
+            <h2 class="blog-post-title mt-5">
                 <%= objArticle.title %>
             </h2>
-            <p class="blog-post-meta"><%= objArticle.date.toLocaleDateString() %> by <a href="#">Hamza</a></p>
+            <p class="blog-post-meta"><%= objArticle.date.toLocaleDateString() %>  <%= objArticle.category %>  </p>
+            <img src="<%= objArticle.photo %>" class="w-100" />
+            
+            
             <p>                 <%- objArticle.sanitizedHtml %>
             </p>
-            <button data-linkid="<%= objArticle._id %>" class="create btn btn-danger">
+
+            <button   data-linkid="<%= objArticle._id %>" class="create btn btn-danger">
               Delete this article
           </button>
-            <button data-linkid="<%= objArticle._id %>" class="create btn btn-info">
-                Edit
-            </button>
+         
             
           </div>
+        </div>
 
+</div>
 
-
-
-          <footer class="blog-footer">
-            <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            <p>
-              <a href="#">Back to top</a>
-            </p>
-          </footer>
+        <footer class="blog-footer">
+          <p>©  2023 <a href="https://getbootstrap.com/">Hamza Ezzat</a> <a href="https://hamzaezzat.com"></a></p>
+        </footer>
       
           <!-- Bootstrap core JavaScript
           ================================================== -->
