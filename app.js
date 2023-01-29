@@ -9,7 +9,7 @@ const blogs = require ('./routes/blogs')
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
-// app.use(helmet());
+
 
 
 // for auto refresh
@@ -36,14 +36,16 @@ mongoose
     "mongodb+srv://hamzaezzat:bofdec-boNryp-1vujfu@cluster0.p5ibkbv.mongodb.net/alldata?retryWrites=true&w=majority"
   )
   .then((result) => {
-    app.listen(port, () => {
-      console.log(`Example app listening at http://localhost:${port}`);
+    app.listen(process.env.PORT  || port, () => {
+      console.log("Example app listening at http://localhost:50 50");
     });
   })
 
   .catch((err) => {
     console.log(err);
   });
+
+// app.use(helmet());
 
 app.get("/", (req, res) => {
   res.redirect("/blogs");

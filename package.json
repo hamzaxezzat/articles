@@ -14,5 +14,23 @@
   "scripts": {
     "start": "node app.js",
     "watch": "nodemon --ext js,ejs --ignore public"
-  }
+  },
+  "name": "articles",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamzaxezzat/articles.git"
+  },
+  "author": "hamza ezzat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamzaxezzat/articles/issues"
+  },
+  "homepage": "https://github.com/hamzaxezzat/articles#readme",
+  "description": "",
+  "engines": {
+    "node": "v18.12.1"
+    }
 }
