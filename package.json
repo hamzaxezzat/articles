@@ -31,6 +31,6 @@
   "homepage": "https://github.com/hamzaxezzat/articles#readme",
   "description": "",
   "engines": {
-    "node": "v18.12.1"
+    "node": "18.12.1"
     }
 }
