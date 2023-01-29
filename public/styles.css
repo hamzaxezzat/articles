@@ -180,7 +180,29 @@ padding-bottom: 4em;
 }
 
 img[alt=markdown] { width: 100%; }
+img[alt=markdown]:hover { 
+  width: 105%; 
+  transition: width .1s ease;
+ }
 .card-img-right{
   object-fit: cover;
   
+}
+.first_blog_photo{
+  object-fit: cover;
+  
+}
+.first_blog_post{
+  background: rgba(27, 32, 37, 0.82);
+  overflow: hidden;
+  height: 100%;
+  z-index: 2;
+  
+}
+pre {
+background: rgb(35, 35, 35);
+font-family: 'courier new';
+color: #fff;
+padding: 30px;
+border-radius: 20px;
 }

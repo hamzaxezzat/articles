@@ -51,6 +51,7 @@ const blogs_details_get =  (req, res) => {
         console.log(err);
         });
     }
+
 const blogs_delete = (req, res) => {
     Article.findByIdAndRemove(req.params.id)
     
@@ -63,4 +64,4 @@ const blogs_delete = (req, res) => {
         });
     }
 
-module.exports = {blogs_index_get, blogs_post, blogs_details_get, blogs_delete,login_post} 
+module.exports = {blogs_index_get, blogs_post, blogs_details_get, blogs_delete,login_post } 
