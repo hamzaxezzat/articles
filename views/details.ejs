@@ -62,8 +62,12 @@
             
             <p>                 <%- objArticle.sanitizedHtml %>
             </p>
+
+            <button   data-linkid="<%= objArticle._id %>" class="create hidden-delete">
+              -
+          </button>
 <!-- 
-            <button   data-linkid="<%= objArticle._id %>" class="create btn btn-danger">
+            <button   data-linkid="" class="create btn btn-danger">
               Delete this article
           </button> -->
          

@@ -12,7 +12,20 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-// // fo 
+// for auto refresh
+const path = require("path");
+const livereload = require("livereload");
+const liveReloadServer = livereload.createServer();
+liveReloadServer.watch(path.join(__dirname, "public"));
+
+const connectLivereload = require("connect-livereload");
+app.use(connectLivereload());
+
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => {
+    liveReloadServer.refresh("/");
+  }, 100);
+});
 
 // mongoose
 const mongoose = require("mongoose");
@@ -24,7 +37,7 @@ mongoose
   )
   .then((result) => {
     app.listen(process.env.PORT  || port, () => {
-      console.log("Example app listening at http://localhost:50 50");
+      console.log("Example app listening at http://localhost:5050");
     });
   })
 

@@ -206,3 +206,12 @@ color: #fff;
 padding: 30px;
 border-radius: 20px;
 }
+.hidden-delete{
+  border: none;
+  background-color: #eeeeee;
+  color: whitesmoke;
+  background: white;
+  text-align: center;
+  margin: auto;
+  display: block;
+}
