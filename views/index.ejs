@@ -26,10 +26,10 @@
     <div class="row mb-2">
 
       <% arrArticle.slice(1).forEach((item)=> { %>
-
         <div class="col-md-6 overflow-hidden">
           <div class="card flex-md-row mb-4 box-shadow  h-md-250  overflow-hidden">
             <div class="card-body d-flex flex-column align-items-start ">
+            
               <strong class="d-inline-block mb-2 text-primary">
                 <%= item.category %>
               </strong>
@@ -41,13 +41,17 @@
               <div class="mb-1 text-muted">
                 <%= item.date.toLocaleDateString() %>
               </div>
+            
               <p class="card-text mb-auto">
                 <%= item.summary%>
               </p>
+              
               <a class="btn" href="/blogs/<%= item.slug  %>">show more</a>
             </div>
-            <img class="card-img-right flex-auto d-none d-md-block" alt="Card image cap" src="<%= item.photo %>"
-              width="200" height="250">
+            <a  href="/blogs/<%= item.slug  %>">
+              <img class="card-img-right flex-auto d-none d-md-block" alt="Card image cap" src="<%= item.photo %>"
+                width="200" height="250">
+              </a>
           </div>
         </div>
         <% }); %>
