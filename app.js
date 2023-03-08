@@ -3,7 +3,6 @@
 const login_post = require("./controllers/blogsController")
 const login_get = require("./controllers/blogsController")
 const express = require("express");
-const helmet = require("helmet");
 const app = express();
 const port = 5050;
 const blogs = require ('./routes/blogs')
@@ -48,7 +47,6 @@ mongoose
     console.log(err);
   });
 
-// app.use(helmet());
 
 app.get("/", (req, res) => {
   res.redirect("/blogs");
