@@ -120,16 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 /*
  * Footer
  */
-.blog-footer {
-  padding: 2.5rem 0;
-  color: #999;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-top: .05rem solid #e5e5e5;
-}
-.blog-footer p:last-child {
-  margin-bottom: 0;
-}
+
 
 
 
@@ -213,5 +204,36 @@ border-radius: 20px;
   background: white;
   text-align: center;
   margin: auto;
-  display: block;
+  display:inline-block;
+  cursor: default;
+}
+
+.hidden-delete:hover{
+  text-decoration: unset;
+  color:#e5e5e5;
+  
+}
+body{
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 8em;
+}
+.content-wrap {
+  padding-bottom: 2.5rem;   
+}
+
+.blog-footer {
+  margin-top: 5rem;
+  padding: 2.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+}
+.blog-footer p:last-child {
+  margin-bottom: 0;
 }

@@ -1,6 +1,7 @@
 
 //  to controll ur website
 const login_post = require("./controllers/blogsController")
+const login_get = require("./controllers/blogsController")
 const express = require("express");
 const helmet = require("helmet");
 const app = express();
@@ -9,6 +10,8 @@ const blogs = require ('./routes/blogs')
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+const Login = require("./models/loginSchema");
+
 
 
 
@@ -55,12 +58,30 @@ app.get("/", (req, res) => {
 app.use('/blogs', blogs)
 
 
-
-
-
 app.get("/add-new-article", (req, res) => {
   res.render("add-new-article", { mytitle: "create new article" ,});
 });
+app.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+app.post("/login", (req,res)=>{
+  const login = new Login(req.body);    
+  login
+      .save()
+      .then((result) => {
+        console.log(req.body)
+        console.log(result)
+      res.redirect("login");
+      })
+      .catch((err) => {
+      console.log(err);
+      });
+});
+  
+app.get("/login",(req,res)=>{
+  res.render("login")
+} );
 
 
 //  404

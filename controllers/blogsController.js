@@ -17,17 +17,22 @@ const blogs_index_get  = (req, res) => {
       });
     }
 
+// const login_get = (req, res) => {
+//     res.render("login");
+// }
+
 const login_post = (req, res) => {
     const login = new Login(req.body);    
     login
         .save()
         .then((result) => {
-        res.redirect("/");
+        res.redirect("login");
         })
         .catch((err) => {
         console.log(err);
         });
-    }
+}
+
 
 const blogs_post = (req, res) => {
     const article = new Article(req.body);    
@@ -64,4 +69,5 @@ const blogs_delete = (req, res) => {
         });
     }
 
-module.exports = {blogs_index_get, blogs_post, blogs_details_get, blogs_delete,login_post } 
+// module.exports = {blogs_index_get, blogs_post, blogs_details_get, blogs_delete,login_post ,login_get} 
+module.exports = {blogs_index_get, blogs_post, blogs_details_get, blogs_delete,login_post} 
