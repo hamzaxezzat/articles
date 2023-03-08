@@ -1,6 +1,6 @@
 
 //  to controll ur website
-
+const login_post = require("./controllers/blogsController")
 const express = require("express");
 const helmet = require("helmet");
 const app = express();
@@ -53,6 +53,7 @@ app.get("/", (req, res) => {
 
 // Bloooogssss Code
 app.use('/blogs', blogs)
+
 
 
 

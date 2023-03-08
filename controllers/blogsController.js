@@ -22,7 +22,7 @@ const login_post = (req, res) => {
     login
         .save()
         .then((result) => {
-        res.redirect("/blogs");
+        res.redirect("/");
         })
         .catch((err) => {
         console.log(err);
