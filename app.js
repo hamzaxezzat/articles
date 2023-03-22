@@ -12,8 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 const Login = require("./models/loginSchema");
 
 
-
-
 // for auto refresh
 const path = require("path");
 const livereload = require("livereload");
