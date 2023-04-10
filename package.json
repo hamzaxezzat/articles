@@ -14,7 +14,7 @@
     "start": "node app.js",
     "watch": "nodemon --ext js,ejs --ignore public"
   },
-  "name": "articles",
+  "name": " ",
   "version": "1.0.0",
   "main": "app.js",
   "devDependencies": {},
@@ -28,8 +28,8 @@
     "url": "https://github.com/hamzaxezzat/articles/issues"
   },
   "homepage": "https://github.com/hamzaxezzat/articles#readme",
-  "description": "",
+  "description": "This is a fully-functioning blog website built using a combination of Node.js, Express.js, MongoDB, Mongoose.js, EJS, and various frontend technologies.",
   "engines": {
     "node": "18.12.1"
-    }
+  }
 }
